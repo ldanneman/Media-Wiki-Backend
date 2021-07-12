@@ -46,13 +46,19 @@ router.post("/iframe", async (req, res) => {
   try {
     const response = await axios.get(req.body.item);
     let x = response.data;
-    console.log(
-      x.split("iframe")[1].split("iframe")[0].split("src=")[1].split('"')[0]
-    );
+
+    let z = x
+      .split(`iframe`)[1]
+      .split("iframe")[0]
+      .split("src=")[1]
+      .split(">")[0]
+      .split('"')[1];
+    console.log(z);
+    z ? res.send(z) : res.send(null);
   } catch (error) {
     console.error(error);
+    res.send("null");
   }
-  res.send("inddeed");
 });
 
 module.exports = router;
