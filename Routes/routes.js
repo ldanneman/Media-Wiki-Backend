@@ -41,13 +41,15 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/iframe", async (req, res) => {
-  console.log("REQ BODY", req.body, "REQ>BDOY");
+  console.log("REQ BODY", req.body, "REQ>BDOY", req.body.item);
+  console.log("called");
   try {
     const response = await axios.get(req.body);
     let x = response.data;
   } catch (error) {
     console.error(error);
   }
+  res.send("inddeed");
 });
 
 module.exports = router;
