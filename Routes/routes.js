@@ -14,24 +14,24 @@ router.get("/", async (req, res) => {
     for (i = 0; i < 10; i++) {
       array.push(`https://www.mixesdb.com/w/${x[i].title}`);
     }
-    for (let i = 0; i < array.length; i++) {
-      try {
-        console.log(array[i].split("-")[3]);
-        const response = await axios.get(
-          `https://www.mixesdb.com/db/api.php?action=query&list=categorymembers&cmtitle=Category:${
-            array[i].split("-")[3]
-          }`
-        );
-        let x = response.data;
-        let z = x.split('"warnings":');
-        // array2.push(z[1]);
-        // console.log(z[1]);
-        let y = z[1].split("</pre>");
-        console.log(y[0]);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+    // for (let i = 0; i < array.length; i++) {
+    //   try {
+    //     console.log(array[i].split("-")[3]);
+    //     const response = await axios.get(
+    //       `https://www.mixesdb.com/db/api.php?action=query&list=categorymembers&cmtitle=Category:${
+    //         array[i].split("-")[3]
+    //       }`
+    //     );
+    //     let x = response.data;
+    //     let z = x.split('"warnings":');
+    //     // array2.push(z[1]);
+    //     // console.log(z[1]);
+    //     let y = z[1].split("</pre>");
+    //     console.log(y[0]);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
 
     console.log(array);
     res.send(array);
