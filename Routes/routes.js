@@ -44,8 +44,9 @@ router.post("/iframe", async (req, res) => {
   console.log("REQ BODY", req.body, "REQ>BDOY", req.body.item);
   console.log("called");
   try {
-    const response = await axios.get(req.body);
+    const response = await axios.get(req.body.item);
     let x = response.data;
+    console.log(x);
   } catch (error) {
     console.error(error);
   }
